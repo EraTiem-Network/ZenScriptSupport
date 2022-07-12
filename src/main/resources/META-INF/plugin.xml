@@ -7,12 +7,11 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="net.eratiem.zenscriptsupport.services.MyApplicationService"/>
-        <projectService serviceImplementation="net.eratiem.zenscriptsupport.services.MyProjectService"/>
+        <fileType
+                name="ZenScript File"
+                implementationClass="net.eratiem.zenscriptsupport.language.ZenScriptFileType"
+                fieldName="INSTANCE"
+                language="ZenScript"
+                extensions="zs" />
     </extensions>
-
-    <applicationListeners>
-        <listener class="net.eratiem.zenscriptsupport.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>
