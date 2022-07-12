@@ -1,7 +1,7 @@
-package com.github.motzkiste.zenscriptsupport.services
+package net.eratiem.zenscriptsupport.services
 
 import com.intellij.openapi.project.Project
-import com.github.motzkiste.zenscriptsupport.MyBundle
+import net.eratiem.zenscriptsupport.MyBundle
 
 class MyProjectService(project: Project) {
 

@@ -1,4 +1,4 @@
-package com.github.motzkiste.zenscriptsupport
+package net.eratiem.zenscriptsupport
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
