@@ -1,3 +1,4 @@
+import org.jetbrains.changelog.date
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.grammarkit.tasks.GenerateLexerTask
 //import org.jetbrains.grammarkit.tasks.GenerateParserTask
@@ -44,7 +45,11 @@ intellij {
 // Configure Gradle Changelog Plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
 changelog {
     version.set(properties("pluginVersion"))
-    groups.set(emptyList())
+    header.set(provider { "[${version.get()}] - ${date("yyyy-MM-dd")}" })
+    itemPrefix.set("*")
+    keepUnreleasedSection.set(true)
+    unreleasedTerm.set("[Unreleased]")
+    groups.set(listOf("Added", "Changed", "Removed", "Fixed"))
 }
 
 // Configure Gradle Qodana Plugin - read more: https://github.com/JetBrains/gradle-qodana-plugin
