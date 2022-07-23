@@ -1,9 +1,12 @@
 import org.jetbrains.changelog.markdownToHTML
+import org.jetbrains.grammarkit.tasks.GenerateLexerTask
+//import org.jetbrains.grammarkit.tasks.GenerateParserTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
+    idea
     // Java support
     id("java")
     // Kotlin support
@@ -14,10 +17,14 @@ plugins {
     id("org.jetbrains.changelog") version "1.3.1"
     // Gradle Qodana Plugin
     id("org.jetbrains.qodana") version "0.1.13"
+    // Gradle Grammar-Kit
+    id("org.jetbrains.grammarkit") version "2021.2.2"
 }
 
 group = properties("pluginGroup")
 version = properties("pluginVersion")
+
+sourceSets["main"].java.srcDirs("src/main/gen")
 
 // Configure project's dependencies
 repositories {
@@ -48,9 +55,43 @@ qodana {
     showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
 }
 
+grammarKit {
+    jflexRelease.set("1.7.0-1")
+    grammarKitRelease.set("2021.1.2")
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(properties("javaVersion")))
+    }
+}
+
 tasks {
     wrapper {
         gradleVersion = properties("gradleVersion")
+    }
+
+    // Generate manual, because of
+//    val generateZenScriptParser = withType<GenerateParserTask> {
+//        source.set("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.bnf")
+//        targetRoot.set("src/main/gen")
+//        pathToParser.set("/net/eratiem/zenscriptsupport/language/parser/ZenScriptParser")
+//        pathToPsiRoot.set("/net/eratiem/zenscriptsupport/language/psi")
+//        purgeOldFiles.set(false)
+//    }
+
+    val generateZenScriptLexer = withType<GenerateLexerTask> {
+        source.set("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.flex")
+        targetDir.set("src/main/gen/net/eratiem/zenscriptsupport/language")
+        targetClass.set("ZenScriptLexer")
+        purgeOldFiles.set(true)
+    }
+
+    withType<KotlinCompile> {
+        dependsOn(
+//            generateZenScriptParser,
+            generateZenScriptLexer
+        )
     }
 
     patchPluginXml {
