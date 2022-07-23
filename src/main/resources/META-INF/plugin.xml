@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>net.eratiem.zenscriptsupport</id>
     <name>ZenScriptSupport</name>
-    <vendor>motzkiste</vendor>
+    <vendor>Motzkiste</vendor>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.java</depends>
