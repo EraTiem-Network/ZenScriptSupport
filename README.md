@@ -1,4 +1,4 @@
-# ZenScriptSupport [![License](https://img.shields.io/github/license/EraTiem-Network/ZenScriptSupport?label=&style=for-the-badge)](./LICENSE)
+# ZenScriptSupport [![License](https://img.shields.io/github/license/EraTiem-Network/ZenScriptSupport?label=&style=for-the-badge)](./LICENSE) [![JetBrains Marketplace]](https://plugins.jetbrains.com/plugin/19565-zenscriptsupport)
 
 #### Plugin Information
 [![Version]](https://plugins.jetbrains.com/plugin/19565-zenscriptsupport)
@@ -26,6 +26,8 @@ This Means:
 - Highlighting Code
 - Linking *(global)* functions
 <!-- Plugin description end -->
+
+[JetBrains Marketplace]: https://img.shields.io/static/v1?label=&message=JetBrains+Marketplace&color=orange&style=for-the-badge
 
 <!-- Plugin Information -->
 [Version]: https://img.shields.io/jetbrains/plugin/v/19565-zenscriptsupport?label=version&style=for-the-badge
