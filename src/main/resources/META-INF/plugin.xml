@@ -9,10 +9,13 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType
-                name="ZenScript File"
+                name="ZenScript-File"
                 implementationClass="net.eratiem.zenscriptsupport.language.ZenScriptFileType"
                 fieldName="INSTANCE"
                 language="ZenScript"
-                extensions="zs" />
+                extensions="zs"/>
+        <lang.parserDefinition
+                language="ZenScript"
+                implementationClass="net.eratiem.zenscriptsupport.language.ZenScriptParserDefinition"/>
     </extensions>
 </idea-plugin>
