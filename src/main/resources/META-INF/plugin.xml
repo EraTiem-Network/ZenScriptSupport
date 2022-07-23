@@ -5,14 +5,17 @@
     <vendor>motzkiste</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="net.eratiem.zenscriptsupport.services.MyApplicationService"/>
-        <projectService serviceImplementation="net.eratiem.zenscriptsupport.services.MyProjectService"/>
+        <fileType
+                name="ZenScript-File"
+                implementationClass="net.eratiem.zenscriptsupport.language.ZenScriptFileType"
+                fieldName="INSTANCE"
+                language="ZenScript"
+                extensions="zs"/>
+        <lang.parserDefinition
+                language="ZenScript"
+                implementationClass="net.eratiem.zenscriptsupport.language.ZenScriptParserDefinition"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="net.eratiem.zenscriptsupport.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>

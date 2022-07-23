@@ -1,0 +1,108 @@
+{
+    parserClass="net.eratiem.zenscriptsupport.language.parser.ZenScriptParser"
+
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix="ZenScript"
+    psiImplClassSuffix="Impl"
+    psiPackage="net.eratiem.zenscriptsupport.language.psi"
+    psiImplPackage="net.eratiem.zenscriptsupport.language.psi.impl"
+
+    elementTypeHolderClass="net.eratiem.zenscriptsupport.language.psi.ZenScriptTypes"
+    elementTypeClass="net.eratiem.zenscriptsupport.language.psi.ZenScriptElementType"
+    tokenTypeClass="net.eratiem.zenscriptsupport.language.psi.ZenScriptTokenType"
+    psiImplUtilClass="net.eratiem.zenscriptsupport.language.psi.impl.ZenScriptPsiImplUtil"
+
+    tokens = [
+        // OPERATORS
+        EQUALS="="
+
+        // SEPARATORS
+        COMMA=","
+        SEMICOLON=";"
+
+        // BRAKETS
+        BRACE_LEFT="{"
+        BRACE_RIGHT="}"
+        BRACKET_LEFT="["
+        BRACKET_RIGHT="]"
+        PAREN_LEFT="("
+        PAREN_RIGHT=")"
+        LESS_THAN="<"
+        GREATER_THAN=">"
+
+        // OTHERS
+        QUOTE="\""
+        DOT="."
+        COLON=":"
+
+        // SPECIFICS
+        NUMBER="regexp:\d+"
+        DECIMAL="regexp:\d+\.\d+"
+
+        // COMMENTS
+        LINE_COMMENT="regexp://.*"
+        BLOCK_COMMENT="regexp:/\*[^\*/]*\*/"
+
+        LOWER_CASE_ID="regexp:[a-z][a-zA-Z0-9_]*"
+        UPPER_CASE_ID="regexp:[A-Z_][a-zA-Z0-9_]*"
+
+        // KEYWORDS
+        IF="if"
+        ELSE="else"
+        IMPORT="import"
+        GLOBAL="global"
+        STATIC="static"
+        VAR="var"
+        VAL="val"
+        AS="as"
+        ORE="ore"
+        LIQUID="liquid"
+        TRUE="true"
+        FALSE="false"
+        NULL="null"
+        VOID="void"
+
+        // TYPES
+        BOOL="bool"
+        INT="int"
+        SHORT="short"
+        LONG="long"
+        BYTE="byte"
+        FLOAT="float"
+        DOUBLE="double"
+        STRING="string"
+        IINGREDIENT="IIngredient"
+        IITEMSTACK="IItemStack"
+        IOREDICTENTRY="IOreDictEntry"
+        ILIQUIDSTACK="ILiquidStack"
+    ]
+}
+
+zenScriptFile ::= item_*
+
+private item_ ::= (import_statement | function_call | item_function_call | var_init)
+
+// Groups
+object ::= UPPER_CASE_ID | LOWER_CASE_ID | IINGREDIENT | IITEMSTACK | IOREDICTENTRY | ILIQUIDSTACK
+boolean ::= TRUE | FALSE
+
+// Objects
+mc_item ::= LESS_THAN LOWER_CASE_ID COLON LOWER_CASE_ID (COLON NUMBER)? GREATER_THAN
+ore_liquid_entry ::= LESS_THAN (ORE | LIQUID) COLON LOWER_CASE_ID GREATER_THAN
+
+// Import
+import_statement ::= IMPORT import_str object (AS object)? SEMICOLON
+import_str  ::= ((LOWER_CASE_ID | LIQUID | ORE) DOT)*
+
+// Functions
+item_function_call ::= (mc_item | ore_liquid_entry) DOT function_call
+function_call ::= LOWER_CASE_ID PAREN_LEFT var_value (COMMA var_value)* PAREN_RIGHT SEMICOLON?
+
+// Variable Declarations
+var_modifier ::= STATIC | VAL | VAR | GLOBAL
+var_init ::= var_modifier object ((AS object) | (EQUALS var_value AS object (BRACKET_LEFT BRACKET_RIGHT)* SEMICOLON))
+var_value ::= array | NUMBER | boolean | mc_item | ore_liquid_entry
+
+// Varble Values
+array ::= BRACKET_LEFT (var_value (COMMA var_value)*)? BRACKET_RIGHT

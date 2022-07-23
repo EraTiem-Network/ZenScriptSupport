@@ -2,3 +2,9 @@
 .idea
 .qodana
 build
+
+src/main/gen
+
+### Manual gen because gradle-grammar-kit does generate faulty ZenScriptProperty ###
+!src/main/gen/net/eratiem/zenscriptsupport/language/parser
+!src/main/gen/net/eratiem/zenscriptsupport/language/psi
