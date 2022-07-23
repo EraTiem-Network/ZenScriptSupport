@@ -3,6 +3,11 @@
 # ZenScriptSupport Changelog
 
 ## [Unreleased]
+### Changed
+* Plugin Description
+
+### Removed
+* Platform Plugin/Dependency: Java
 
 ## [0.0.1-alpha.2] - 2022-07-23
 ### Changed
