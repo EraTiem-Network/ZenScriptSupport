@@ -3,6 +3,8 @@
 # ZenScriptSupport Changelog
 
 ## [Unreleased]
+
+## [0.0.1-alpha.2]
 ### Changed
 - Nothing just testing plugin release
 
