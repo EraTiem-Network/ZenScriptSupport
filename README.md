@@ -1,6 +1,6 @@
 # ZenScriptSupport
 
-![Build](https://github.com/EraTiem-Network/ZenScriptSupport/workflows/Build/badge.svg)
+[![Build](https://github.com/EraTiem-Network/ZenScriptSupport/actions/workflows/build.yml/badge.svg?branch=next)](https://github.com/EraTiem-Network/ZenScriptSupport/actions/workflows/build.yml?query=branch%3Anext)
 [![Version](https://img.shields.io/jetbrains/plugin/v/17326-zenscriptsupport.svg)](https://plugins.jetbrains.com/plugin/17326-zenscriptsupport)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/17326-zenscriptsupport.svg)](https://plugins.jetbrains.com/plugin/17326-zenscriptsupport)
 
