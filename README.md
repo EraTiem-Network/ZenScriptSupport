@@ -17,6 +17,7 @@
 [![Issues Open]](https://github.com/EraTiem-Network/ZenScriptSupport/issues?q=is%3Aissue+is%3Aopen)
 [![Issues Closed]](https://github.com/EraTiem-Network/ZenScriptSupport/issues?q=is%3Aissue+is%3Aclosed)
 
+---
 
 <!-- Plugin description -->
 #### This Plugin provides Support for ZenScript
