@@ -47,9 +47,7 @@ changelog {
     version.set(properties("pluginVersion"))
     header.set(provider { "[${version.get()}] - ${date("yyyy-MM-dd")}" })
     itemPrefix.set("*")
-    keepUnreleasedSection.set(true)
-    unreleasedTerm.set("[Unreleased]")
-    groups.set(listOf("Added", "Changed", "Removed", "Fixed"))
+    groups.set(emptyList())
 }
 
 // Configure Gradle Qodana Plugin - read more: https://github.com/JetBrains/gradle-qodana-plugin
