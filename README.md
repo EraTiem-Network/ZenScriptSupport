@@ -22,27 +22,35 @@
 <!-- Plugin description -->
 #### This Plugin provides Support for ZenScript
 
-##### Currently implemented Features:
-- [ ] Parsing
-- [ ] Syntax Highlighting
-- [ ] Code Completion
-- [ ] Referencing
-- [ ] Usage Finder
-- [ ] Folding
-- [ ] Structure View
-- [ ] Structure Aware Navigation Bar
-- [ ] Formatter
-  - [ ] Code Style Settings
-- [ ] Commenter
-- [ ] Quick Fix
+##### Currently implemented features:
+* Nothing so far
 
-##### Supported Minecraft Versions:
-- [ ] 1.12
-- [ ] 1.14
-- [ ] 1.15
-- [ ] 1.16
-- [ ] 1.17
-- [ ] 1.18
+##### Features to come:
+* Parsing
+* Syntax Highlighting
+* Code Completion
+* Referencing
+* Usage Finder
+* Folding
+* Structure View
+* Structure Aware Navigation Bar
+* Formatter
+  * Code Style Settings
+* Commenter
+* Quick Fix
+
+##### Currently supported Minecraft versions:
+* Not a single one
+
+##### Minecraft versions to be supported:
+* 1.12
+* 1.14
+* 1.15
+* 1.16
+* 1.17
+* 1.18
+
+######
 <!-- Plugin description end -->
 
 [JetBrains Marketplace]: https://img.shields.io/static/v1?label=&message=JetBrains+Marketplace&color=orange&style=for-the-badge
