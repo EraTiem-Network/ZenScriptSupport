@@ -3,6 +3,24 @@
 # ZenScriptSupport Changelog
 
 ## [Unreleased]
+### Added
+
+### Changed
+
+### Removed
+
+### Fixed
+
+## [0.0.1-alpha.3] - 2022-07-24
+### Added
+
+### Changed
+
+### Removed
+
+### Fixed
+
+## [0.0.1-alpha.3] - 2022-07-24
 ### Changed
 * Plugin Description
 
