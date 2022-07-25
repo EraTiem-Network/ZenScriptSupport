@@ -3,13 +3,13 @@
 # ZenScriptSupport Changelog
 
 ## [Unreleased]
-### Added
-
 ### Changed
-
-### Removed
+* Use correct vendor
+* Lowered supported Platform Version
+* Use correct Semantic Versioning
 
 ### Fixed
+* CHANGELOG generation
 
 ## [0.0.1-alpha.3] - 2022-07-24
 ### Changed

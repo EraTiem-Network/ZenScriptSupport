@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>net.eratiem.zenscriptsupport</id>
     <name>ZenScriptSupport</name>
-    <vendor>Motzkiste</vendor>
+    <vendor>EraTiem-Network</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
