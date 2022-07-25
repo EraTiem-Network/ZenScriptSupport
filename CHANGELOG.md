@@ -3,10 +3,13 @@
 # ZenScriptSupport Changelog
 
 ## [Unreleased]
+
+## [1.0.0-alpha] - 2022-07-25
 ### Changed
 * Use correct vendor
 * Lowered supported Platform Version
 * Use correct Semantic Versioning
+
 
 ### Fixed
 * CHANGELOG generation
@@ -14,6 +17,7 @@
 ## [0.0.1-alpha.3] - 2022-07-24
 ### Changed
 * Plugin Description
+
 
 ### Removed
 * Platform Plugin/Dependency: Java
