@@ -32,7 +32,7 @@ jobs:
       version: ${{ steps.properties.outputs.version }}
       changelog: ${{ steps.properties.outputs.changelog }}
     steps:
-      # Cleanup Workspace
+      # Cancel previous builds
       - name: Cancel previous builds
         uses: styfle/cancel-workflow-action@0.10.0
         with:
