@@ -61,8 +61,8 @@
 [Rating]: https://img.shields.io/jetbrains/plugin/r/rating/19565-zenscriptsupport?style=for-the-badge
 
 <!-- Builds -->
-[Main]: https://img.shields.io/github/workflow/status/EraTiem-Network/ZenScriptSupport/Build/main?label=main&style=for-the-badge
-[Next]: https://img.shields.io/github/workflow/status/EraTiem-Network/ZenScriptSupport/Build/next?label=next&style=for-the-badge
+[Main]: https://img.shields.io/github/actions/workflow/status/EraTiem-Network/ZenScriptSupport/build.yml?branch=main&label=main&style=for-the-badge
+[Next]: https://img.shields.io/github/actions/workflow/status/EraTiem-Network/ZenScriptSupport/build.yml?branch=next&label=next&style=for-the-badge
 
 <!-- Pull requests -->
 [PRs Open]: https://img.shields.io/github/issues-pr-raw/EraTiem-Network/ZenScriptSupport?label=open&style=for-the-badge
