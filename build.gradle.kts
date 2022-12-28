@@ -3,6 +3,7 @@ import org.jetbrains.changelog.Changelog
 import org.jetbrains.changelog.date
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.grammarkit.tasks.GenerateLexerTask
+import org.jetbrains.grammarkit.tasks.GenerateParserTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 fun properties(key: String) = project.findProperty(key).toString()
@@ -12,17 +13,17 @@ plugins {
     // Java support
     id("java")
     // Kotlin support
-    id("org.jetbrains.kotlin.jvm") version "1.7.22"
-    // Gradle IntelliJ Plugin
-    id("org.jetbrains.intellij") version "1.11.0"
-    // Gradle Changelog Plugin
-    id("org.jetbrains.changelog") version "2.0.0"
-    // Gradle Qodana Plugin
-    id("org.jetbrains.qodana") version "0.1.13"
+    alias(libs.plugins.kotlin.jvm)
     // Gradle Kover Plugin
-    id("org.jetbrains.kotlinx.kover") version "0.6.1"
+    alias(libs.plugins.kotlin.kover)
+    // Gradle IntelliJ Plugin
+    alias(libs.plugins.intellij)
     // Gradle Grammar-Kit
-    id("org.jetbrains.grammarkit") version "2022.3"
+    alias(libs.plugins.grammarkit)
+    // Gradle Qodana Plugin
+    alias(libs.plugins.qodana)
+    // Gradle Changelog Plugin
+    alias(libs.plugins.changelog)
 }
 
 group = properties("pluginGroup")
@@ -83,13 +84,13 @@ tasks {
     }
 
     // Generate manual, because of
-//    val generateZenScriptParser = withType<GenerateParserTask> {
-//        source.set("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.bnf")
-//        targetRoot.set("src/main/gen")
-//        pathToParser.set("/net/eratiem/zenscriptsupport/language/parser/ZenScriptParser")
-//        pathToPsiRoot.set("/net/eratiem/zenscriptsupport/language/psi")
-//        purgeOldFiles.set(false)
-//    }
+    val generateZenScriptParser = withType<GenerateParserTask> {
+        source.set("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.bnf")
+        targetRoot.set("src/main/gen")
+        pathToParser.set("/net/eratiem/zenscriptsupport/language/parser/ZenScriptParser")
+        pathToPsiRoot.set("/net/eratiem/zenscriptsupport/language/psi")
+        purgeOldFiles.set(false)
+    }
 
     val generateZenScriptLexer = withType<GenerateLexerTask> {
         source.set("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.flex")
@@ -100,7 +101,7 @@ tasks {
 
     withType<KotlinCompile> {
         dependsOn(
-//            generateZenScriptParser,
+            generateZenScriptParser,
             generateZenScriptLexer
         )
     }

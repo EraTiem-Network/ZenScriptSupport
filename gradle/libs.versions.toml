@@ -1,0 +1,15 @@
+[versions]
+kotlin = "1.7.22"
+kover = "0.6.1"
+intellij = "1.11.0"
+grammarkit = "2022.3"
+qodana = "0.1.13"
+changelog = "2.0.0"
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+intellij = { id = "org.jetbrains.intellij", version.ref = "intellij" }
+grammarkit = { id = "org.jetbrains.grammarkit", version.ref = "grammarkit" }
+qodana = { id = "org.jetbrains.qodana", version.ref = "qodana" }
+changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
