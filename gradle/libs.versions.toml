@@ -4,7 +4,7 @@ kover = "0.7.1"
 intellij = "1.14.2"
 grammarkit = "2022.3.1"
 qodana = "0.1.13"
-changelog = "2.1.0"
+changelog = "2.1.1"
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
