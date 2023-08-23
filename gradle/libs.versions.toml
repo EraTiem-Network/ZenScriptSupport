@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.8.22"
+kotlin = "1.9.10"
 kover = "0.7.1"
 intellij = "1.14.2"
 grammarkit = "2022.3.1"
