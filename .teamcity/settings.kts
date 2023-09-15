@@ -46,6 +46,8 @@ object Build : BuildType({
         script {
             name = "Export Properties"
             scriptContent = """
+                echo "${'$'}JAVA_HOME"
+                echo "${'$'}(whereis java)"
                 PROPERTIES="${'$'}(./gradlew properties --console=plain -q)"
                 VERSION="${'$'}(echo "${'$'}PROPERTIES" | grep "^version:" | cut -f2- -d ' ')" 
                 NAME="${'$'}(echo "${'$'}PROPERTIES" | grep "^pluginName:" | cut -f2- -d ' ')" 
