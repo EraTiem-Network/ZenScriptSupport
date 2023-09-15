@@ -69,6 +69,11 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns", "*password*,*secret*")
         }
         gradle {
+            name = "List Product Releases"
+            tasks = "listProductsReleases"
+            buildFile = "build.gradle.kts"
+        }
+        gradle {
             name = "Run Tests"
             tasks = "buildDependents"
             buildFile = "build.gradle.kts"
@@ -76,13 +81,6 @@ object Build : BuildType({
             coverageEngine = idea {
                 includeClasses = "net.eratiem.*"
             }
-            param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
-        }
-        gradle {
-            name = "List Product Releases"
-            tasks = "listProductsReleases"
-            buildFile = "build.gradle.kts"
-            param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
         }
     }
 
