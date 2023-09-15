@@ -78,6 +78,12 @@ object Build : BuildType({
             }
             param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
         }
+        gradle {
+            name = "Liat Product Releases"
+            tasks = "listProductsReleases"
+            buildFile = "build.gradle.kts"
+            param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
+        }
     }
 
     triggers {
