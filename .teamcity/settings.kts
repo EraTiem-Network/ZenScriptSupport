@@ -59,7 +59,7 @@ object Build : BuildType({
                 echo "##teamcity[setParameter name='env.CHANGELOG' value='${'$'}CHANGELOG']"
                 echo "##teamcity[setParameter name='env.pluginVerifierHomeDir' value='~/.pluginVerifier']"
                 
-                ./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
+                #./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
             """.trimIndent()
             param("org.jfrog.artifactory.selectedDeployableServer.publishBuildInfo", "true")
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
