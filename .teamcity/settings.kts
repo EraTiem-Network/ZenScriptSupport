@@ -53,10 +53,10 @@ object Build : BuildType({
                 CHANGELOG="${'$'}{CHANGELOG//${'$'}'\n'/'%0A'}" 
                 CHANGELOG="${'$'}{CHANGELOG//${'$'}'\r'/'%0D'}" 
                 
-                echo "::set-output name=version::${'$'}VERSION" 
-                echo "::set-output name=name::${'$'}NAME" 
-                echo "::set-output name=changelog::${'$'}CHANGELOG" 
-                echo "::set-output name=pluginVerifierHomeDir::~/.pluginVerifier" 
+                echo "##teamcity[setParameter name='env.VERSION' value='${'$'}VERSION']"
+                echo "##teamcity[setParameter name='env.NAME' value='${'$'}NAME']"
+                echo "##teamcity[setParameter name='env.CHANGELOG' value='${'$'}CHANGELOG']"
+                echo "##teamcity[setParameter name='env.pluginVerifierHomeDir' value='~/.pluginVerifier']"
                 
                 ./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
             """.trimIndent()
@@ -66,7 +66,6 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.buildDependencies", "Requires Artifactory Pro.")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns", "*password*,*secret*")
-            param("org.jfrog.artifactory.selectedDeployableServer.targetRepo", "eratiem")
         }
     }
 
