@@ -71,12 +71,12 @@ object Build : BuildType({
         }
         gradle {
             name = "Run Tests"
-            tasks = "buildDependents"
+            tasks = "test"
             buildFile = "build.gradle.kts"
-            incremental = true
             coverageEngine = idea {
                 includeClasses = "net.eratiem.*"
             }
+            param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
         }
     }
 
