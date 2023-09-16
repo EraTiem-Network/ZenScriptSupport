@@ -80,7 +80,7 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
         }
         script {
-            name = "Run Tests (1)"
+            name = "Run Tests (CM)"
             scriptContent = "./gradlew test"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
