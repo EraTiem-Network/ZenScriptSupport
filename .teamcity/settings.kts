@@ -57,7 +57,7 @@ object Build : BuildType({
                 
                 echo "##teamcity[setParameter name='env.VERSION' value='${'$'}VERSION']"
                 echo "##teamcity[setParameter name='env.NAME' value='${'$'}NAME']"
-                echo "##teamcity[setParameter name='env.CHANGELOG' value='${'$'}CHANGELOG']"
+                #echo "##teamcity[setParameter name='env.CHANGELOG' value='${'$'}CHANGELOG']"
                 echo "##teamcity[setParameter name='env.pluginVerifierHomeDir' value='~/.pluginVerifier']"
                 
                 ./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
