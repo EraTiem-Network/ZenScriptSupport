@@ -46,10 +46,6 @@ object Build : BuildType({
         script {
             name = "Export Properties"
             scriptContent = """
-                echo "${'$'}JAVA_HOME"
-                echo "${'$'}(whereis java)"
-                echo ${'$'}(java --version)
-                echo ${'$'}PWD
                 PROPERTIES="${'$'}(./gradlew properties --console=plain -q)"
                 VERSION="${'$'}(echo "${'$'}PROPERTIES" | grep "^version:" | cut -f2- -d ' ')" 
                 NAME="${'$'}(echo "${'$'}PROPERTIES" | grep "^pluginName:" | cut -f2- -d ' ')" 
@@ -63,7 +59,7 @@ object Build : BuildType({
                 echo "##teamcity[setParameter name='env.CHANGELOG' value='${'$'}CHANGELOG']"
                 echo "##teamcity[setParameter name='env.pluginVerifierHomeDir' value='~/.pluginVerifier']"
                 
-                #./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
+                ./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
             """.trimIndent()
             param("org.jfrog.artifactory.selectedDeployableServer.publishBuildInfo", "true")
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
