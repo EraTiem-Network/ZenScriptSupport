@@ -80,7 +80,7 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
         script {
-            name = "Run Plugin Verification (1)"
+            name = "Run Plugin Verification"
             scriptContent = """
                 ./gradlew runPluginVerifier
                 echo "##teamcity[publishArtifacts './build/reports/pluginVerifier']"
