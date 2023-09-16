@@ -75,6 +75,7 @@ object Build : BuildType({
                 ./gradlew test
                 echo "##teamcity[publishArtifacts './build/reports/tests']"
             """.trimIndent()
+            formatStderrAsError = true
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
