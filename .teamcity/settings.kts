@@ -72,7 +72,8 @@ object Build : BuildType({
             name = "Run Tests (CM)"
             scriptContent = """
                 ./gradlew test
-                echo "##teamcity[publishArtifacts 'build/reports/tests']"
+                ls
+                echo "##teamcity[publishArtifacts './build/reports/tests']"
             """.trimIndent()
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
