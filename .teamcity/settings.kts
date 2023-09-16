@@ -1,6 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -68,16 +67,6 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.buildDependencies", "Requires Artifactory Pro.")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns", "*password*,*secret*")
-        }
-        gradle {
-            name = "Run Tests"
-            enabled = false
-            tasks = "test"
-            buildFile = "build.gradle.kts"
-            coverageEngine = idea {
-                includeClasses = "net.eratiem.*"
-            }
-            param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
         }
         script {
             name = "Run Tests (CM)"
