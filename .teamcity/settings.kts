@@ -85,6 +85,7 @@ object Build : BuildType({
                 ./gradlew runPluginVerifier
                 echo "##teamcity[publishArtifacts './build/reports/pluginVerifier']"
             """.trimIndent()
+            formatStderrAsError = true
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
