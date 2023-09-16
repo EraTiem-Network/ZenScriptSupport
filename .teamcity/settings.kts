@@ -48,6 +48,8 @@ object Build : BuildType({
             scriptContent = """
                 echo "${'$'}JAVA_HOME"
                 echo "${'$'}(whereis java)"
+                echo ${'$'}(java --version)
+                echo ${'$'}PWD
                 PROPERTIES="${'$'}(./gradlew properties --console=plain -q)"
                 VERSION="${'$'}(echo "${'$'}PROPERTIES" | grep "^version:" | cut -f2- -d ' ')" 
                 NAME="${'$'}(echo "${'$'}PROPERTIES" | grep "^pluginName:" | cut -f2- -d ' ')" 
