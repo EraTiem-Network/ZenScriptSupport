@@ -70,11 +70,10 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns", "*password*,*secret*")
         }
         script {
-            name = "Run Tests (CM)"
+            name = "Run Plugin Verification"
             scriptContent = """
-                ./gradlew test
-                ls
-                echo "##teamcity[publishArtifacts './build/reports/tests']"
+                ./gradlew runPluginVerifier
+                echo "##teamcity[publishArtifacts './build/reports/pluginVerifier']"
             """.trimIndent()
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
