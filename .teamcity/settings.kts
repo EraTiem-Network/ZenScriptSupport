@@ -81,7 +81,6 @@ object Build : BuildType({
         }
         script {
             name = "Test"
-            enabled = false
             scriptContent = "./gradlew test"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
