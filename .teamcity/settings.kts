@@ -79,6 +79,16 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
+        script {
+            name = "Run Plugin Verification (1)"
+            scriptContent = """
+                ./gradlew runPluginVerifier
+                echo "##teamcity[publishArtifacts './build/reports/pluginVerifier']"
+            """.trimIndent()
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
     }
 
     triggers {
