@@ -63,9 +63,9 @@ qodana {
     showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
 }
 
-kover.xmlReport {
-    onCheck.set(true)
-}
+//kover.xmlReport {
+//    onCheck.set(true)
+//}
 
 grammarKit {
     jflexRelease.set("1.7.0-1")
@@ -85,7 +85,7 @@ tasks {
 
     // Generate manual, because of
     val generateZenScriptParser = withType<GenerateParserTask> {
-        source.set("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.bnf")
+        sourceFile.set(File("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.bnf"))
         targetRoot.set("src/main/gen")
         pathToParser.set("/net/eratiem/zenscriptsupport/language/parser/ZenScriptParser")
         pathToPsiRoot.set("/net/eratiem/zenscriptsupport/language/psi")
@@ -93,7 +93,7 @@ tasks {
     }
 
     val generateZenScriptLexer = withType<GenerateLexerTask> {
-        source.set("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.flex")
+        sourceFile.set(File("src/main/resources/net/eratiem/zenscriptsupport/language/ZenScript.flex"))
         targetDir.set("src/main/gen/net/eratiem/zenscriptsupport/language")
         targetClass.set("ZenScriptLexer")
         purgeOldFiles.set(true)
