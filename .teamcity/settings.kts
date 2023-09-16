@@ -45,6 +45,7 @@ object Build : BuildType({
     steps {
         script {
             name = "Export Properties"
+            enabled = false
             scriptContent = """
                 echo "${'$'}JAVA_HOME"
                 echo "${'$'}(whereis java)"
