@@ -71,7 +71,6 @@ object Build : BuildType({
         }
         gradle {
             name = "Run Tests"
-            enabled = false
             tasks = "test"
             buildFile = "build.gradle.kts"
             coverageEngine = idea {
