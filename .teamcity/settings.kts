@@ -51,9 +51,9 @@ object Build : BuildType({
                 NAME="${'$'}(echo "${'$'}PROPERTIES" | grep "^pluginName:" | cut -f2- -d ' ')" 
                 CHANGELOG="${'$'}(./gradlew getChangelog --unreleased --no-header --console=plain -q)"
                 echo "${'$'}CHANGELOG"
-                CHANGELOG="${'$'}{CHANGELOG//'%'/'%25'}" 
-                CHANGELOG="${'$'}{CHANGELOG//${'$'}'\n'/'%0A'}" 
-                CHANGELOG="${'$'}{CHANGELOG//${'$'}'\r'/'%0D'}" 
+                #CHANGELOG="${'$'}{CHANGELOG//'%'/'%25'}" 
+                #CHANGELOG="${'$'}{CHANGELOG//${'$'}'\n'/'%0A'}" 
+                #CHANGELOG="${'$'}{CHANGELOG//${'$'}'\r'/'%0D'}" 
                 
                 echo "##teamcity[setParameter name='env.VERSION' value='${'$'}VERSION']"
                 echo "##teamcity[setParameter name='env.NAME' value='${'$'}NAME']"
