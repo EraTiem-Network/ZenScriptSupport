@@ -98,6 +98,10 @@ object Build : BuildType({
         }
     }
 
+    failureConditions {
+        errorMessage = true
+    }
+
     features {
         perfmon {
         }
