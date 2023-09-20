@@ -107,6 +107,11 @@ object Build : BuildType({
             failureMessage = "Build failed with an exception"
             reverse = false
         }
+        failOnText {
+            conditionType = BuildFailureOnText.ConditionType.REGEXP
+            pattern = """BUILD FAILED in \d+s"""
+            reverse = false
+        }
     }
 
     features {
