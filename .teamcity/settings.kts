@@ -90,6 +90,7 @@ object Build : BuildType({
         script {
             name = "Run Plugin Verification"
             scriptContent = """
+                ls -lah ./build
                 ./gradlew runPluginVerifier -Pplugin.verifier.home.dir=%env.pluginVerifierHomeDir%
                 echo "##teamcity[publishArtifacts './build/reports/pluginVerifier']"
             """.trimIndent()
