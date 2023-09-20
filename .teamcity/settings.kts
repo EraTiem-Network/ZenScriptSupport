@@ -135,5 +135,10 @@ object Build : BuildType({
         swabra {
             filesCleanup = Swabra.FilesCleanup.DISABLED
         }
+        feature {
+            type = ""
+            param("swabra.strict", "true")
+            param("swabra.enabled", "swabra.before.build")
+        }
     }
 })
