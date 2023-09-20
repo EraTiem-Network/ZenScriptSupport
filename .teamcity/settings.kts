@@ -1,6 +1,8 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildFeatures.Swabra
 import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.failureConditions.BuildFailureOnText
 import jetbrains.buildServer.configs.kotlin.failureConditions.failOnText
@@ -129,6 +131,9 @@ object Build : BuildType({
                 githubUrl = "https://api.github.com"
                 authType = vcsRoot()
             }
+        }
+        swabra {
+            filesCleanup = Swabra.FilesCleanup.DISABLED
         }
     }
 })
