@@ -40,6 +40,10 @@ object Build : BuildType({
 
     maxRunningBuildsPerBranch = "*:1"
 
+    params {
+        param("env.pluginVerifierHomeDir", "~/.pluginVerifier")
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
