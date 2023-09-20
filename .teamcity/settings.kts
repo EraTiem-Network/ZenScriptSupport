@@ -1,5 +1,4 @@
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildFeatures.Swabra
 import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildFeatures.swabra
@@ -133,7 +132,6 @@ object Build : BuildType({
             }
         }
         swabra {
-            filesCleanup = Swabra.FilesCleanup.DISABLED
         }
     }
 })
