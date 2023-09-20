@@ -132,6 +132,8 @@ object Build : BuildType({
             }
         }
         swabra {
+            forceCleanCheckout = true
+            paths = "."
         }
     }
 })
