@@ -132,6 +132,7 @@ object Build : BuildType({
             }
         }
         swabra {
+            enabled = false
         }
     }
 })
